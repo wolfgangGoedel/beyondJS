@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wolfgang Goedel",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^2.5.3"
+  }
 }

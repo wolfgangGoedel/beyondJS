@@ -1,11 +1,16 @@
 {
-  "name": "beyond-js-re",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "re",
+  "version": "0.1.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
   },
-  "author": "Wolfgang Goedel",
-  "license": "ISC"
+  "keywords": [
+    "BuckleScript"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "1.9.2"
+  }
 }
