@@ -6,6 +6,8 @@ add 0.1 0.2;
 
 add 42 "Dent";
 
+
+/*********************************/
 let everySecond what => {
   let iid = Js.Global.setInterval what 1000;
   fun () => Js.Global.clearInterval iid

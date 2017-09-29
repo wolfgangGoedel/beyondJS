@@ -12,11 +12,12 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
+  const { counter } = state;
   switch (action.type) {
     case ADD:
-      return { ...state, counter: state.counter + action.val };
+      return { ...state, counter: counter + action.val };
     case SUB:
-      return { ...state, counter: state.counter - action.val };
+      return { ...state, counter: counter - action.val };
     case RESET:
       return { ...state, counter: initialState.counter };
     default:
