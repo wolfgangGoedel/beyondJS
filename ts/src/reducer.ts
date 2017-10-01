@@ -18,16 +18,21 @@ export const reducer = (state = initialState, action: Action): State => {
   const { counter } = state;
   switch (action.type) {
     case 'ADD':
-      return {...state, counter: counter + action.val};
+      return { ...state, counter: counter + action.val };
     case 'SUB':
-      return {...state, counter: counter - action.val};
+      return {
+        ...state,
+        counter: counter >= action.val ? counter - action.val : 0
+      };
     case 'RESET':
-      return {...state, counter: initialState.counter};
+      return { ...state, counter: initialState.counter };
     default:
       return state;
   }
-}
+};
 
 declare var store: { dispatch: (action: Action) => void };
 
 store.dispatch({ type: 'ADD', val: 42 });
+store.dispatch({ type: 'WHAT' });
+store.dispatch({ type: 'SUB', val: 'toto' });

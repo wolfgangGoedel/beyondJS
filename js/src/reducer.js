@@ -17,7 +17,10 @@ export const reducer = (state = initialState, action) => {
     case ADD:
       return { ...state, counter: counter + action.val };
     case SUB:
-      return { ...state, counter: counter - action.val };
+      return {
+        ...state,
+        counter: counter >= action.val ? counter - action.val : 0
+      };
     case RESET:
       return { ...state, counter: initialState.counter };
     default:
@@ -28,4 +31,4 @@ export const reducer = (state = initialState, action) => {
 /****************************************/
 
 store.dispatch(add(42));
-store.dispatch(sub('toto'));
+store.dispatch(sub('toto')); // ==> counter := NaN

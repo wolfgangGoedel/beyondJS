@@ -11,15 +11,14 @@ type action =
 
 let initialState = {counter: 0, other: "toto"};
 
-let reducer ::state=initialState ::action => {
-  let {counter} = state;
-  switch action {
-  | Add value => {...state, counter: counter + value}
-  | Sub value => {...state, counter: counter - value}
-  | Reset => {...state, counter: initialState.counter}
+let reducer ::state=initialState ::action =>
+  switch (action, state.counter) {
+  | (Add value, c) => {...state, counter: c + value}
+  | (Sub value, c) when c >= value => {...state, counter: c - value}
+  | (Sub value, c) when c < value => {...state, counter: 0}
+  | (Reset, _) => {...state, counter: initialState.counter}
   | _ => state
-  }
-};
+  };
 
 type store 'state 'action;
 
