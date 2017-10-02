@@ -10,7 +10,7 @@ var initialState = /* record */[
 
 function reducer($staropt$star, action) {
   var state = $staropt$star ? $staropt$star[0] : initialState;
-  var counter = state[/* counter */0];
+  var match = state[/* counter */0];
   if (typeof action === "number") {
     if (action) {
       return state;
@@ -21,13 +21,23 @@ function reducer($staropt$star, action) {
             ];
     }
   } else if (action.tag) {
-    return /* record */[
-            /* counter */counter - action[0] | 0,
-            /* other */state[/* other */1]
-          ];
+    var value = action[0];
+    if (match >= value) {
+      return /* record */[
+              /* counter */match - value | 0,
+              /* other */state[/* other */1]
+            ];
+    } else if (match < value) {
+      return /* record */[
+              /* counter */0,
+              /* other */state[/* other */1]
+            ];
+    } else {
+      return state;
+    }
   } else {
     return /* record */[
-            /* counter */counter + action[0] | 0,
+            /* counter */match + action[0] | 0,
             /* other */state[/* other */1]
           ];
   }

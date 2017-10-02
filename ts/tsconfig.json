@@ -3,6 +3,8 @@
     "target": "es2017",
     "module": "es2015",
     "strict": true,
-    "outDir": "js"
+    "outDir": "js",
+    "jsx": "react",
+    "moduleResolution": "node"
   }
 }

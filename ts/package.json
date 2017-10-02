@@ -9,6 +9,8 @@
   "author": "Wolfgang Goedel",
   "license": "ISC",
   "dependencies": {
+    "@types/react": "^16.0.7",
+    "react": "^16.0.0",
     "typescript": "^2.5.3"
   }
 }
